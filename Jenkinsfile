@@ -13,7 +13,7 @@ pipeline {
   stages {
     stage('Checkout') {
       steps {
-        git 'https://github.com/joe-broder15/jenkins-test-repo.git'
+        checkout scm
       }
     }
 
