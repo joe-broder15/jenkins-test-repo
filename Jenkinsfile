@@ -29,9 +29,23 @@ pipeline {
       }
     }
 
-    stage('Archive Binary') {
+    stage('Publish to Nexus') {
       steps {
-        archiveArtifacts artifacts: 'bin/**', fingerprint: true
+        nexusArtifactUploader(
+          nexusVersion:   'nexus3',
+          protocol:       'https',
+          nexusUrl:       "http://10.1.1.129:8081/repository/golang-builds/",
+          credentialsId:  'nexus-creds',           // your Jenkins creds ID
+          groupId:        'com.mycompany.go',      // adjust path prefix
+          version:        "1.0.${env.BUILD_NUMBER}", 
+          repository:     'go-binaries',           // your raw-hosted repo name
+          artifacts: [
+            [artifactId: 'myapp',
+             classifier: '',
+             file:       'bin/myapp',
+             type:       'binary']
+          ]
+        )
       }
     }
   }
