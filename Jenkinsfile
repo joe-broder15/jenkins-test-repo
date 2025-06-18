@@ -2,7 +2,7 @@ pipeline {
   agent any
 
   tools {
-    go 'Go 1.24' // name must match what you configured in Jenkins tools
+    go 'golang 1.24' // name must match what you configured in Jenkins tools
   }
 
   environment {
