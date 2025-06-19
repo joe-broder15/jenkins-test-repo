@@ -2,7 +2,7 @@ pipeline {
   agent any
 
   tools {
-    go 'golang' // name must match what you configured in Jenkins tools
+    go 'golang'
   }
 
   environment {
@@ -35,10 +35,10 @@ pipeline {
           nexusVersion:   'nexus3',
           protocol:       'http',
           nexusUrl:       "10.1.1.129:8081/repository/golang-builds",
-          credentialsId:  'nexus-creds',           // your Jenkins creds ID
-          groupId:        'com.mycompany.go',      // adjust path prefix
+          credentialsId:  'nexus-creds',           
+          groupId:        'com.mycompany.go',     
           version:        "1.0.${env.BUILD_NUMBER}", 
-          repository:     'go-binaries',           // your raw-hosted repo name
+          repository:     'go-binaries',           
           artifacts: [
             [artifactId: 'myapp',
              classifier: '',
