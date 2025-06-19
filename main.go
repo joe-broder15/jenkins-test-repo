@@ -7,7 +7,7 @@ import (
 )
 
 func main() {
-	fmt.Print("Enter text now  1: ")
+	fmt.Print("Enter text now  123: ")
 	scanner := bufio.NewScanner(os.Stdin)
 	if scanner.Scan() {
 		input := scanner.Text()
