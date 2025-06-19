@@ -33,8 +33,8 @@ pipeline {
       steps {
         nexusArtifactUploader(
           nexusVersion:   'nexus3',
-          protocol:       'https',
-          nexusUrl:       "10.1.1.129:8081/repository/golang-builds/",
+          protocol:       'http',
+          nexusUrl:       "10.1.1.129:8081/repository/golang-builds",
           credentialsId:  'nexus-creds',           // your Jenkins creds ID
           groupId:        'com.mycompany.go',      // adjust path prefix
           version:        "1.0.${env.BUILD_NUMBER}", 
